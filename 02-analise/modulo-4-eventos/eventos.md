@@ -5,6 +5,9 @@
 **Ator principal:** pessoa que utiliza o Minha UFG para consultar eventos. **Sistema de interesse:** módulo Eventos do aplicativo móvel. **Sistemas externos:** serviço de eventos da UFG consultado por HTTP e páginas institucionais abertas em visualizador web integrado. A produção editorial, publicação, gestão de eventos e regras internas do serviço remoto não pertencem à fronteira do módulo cliente observada.
 **Objetivo do usuário:** localizar eventos vinculados à data de interesse, identificar a regional e consultar os detalhes do evento escolhido.
 
+## 1.1. Usuários, stakeholders e domínio específico
+O domínio abrangido é a divulgação de eventos institucionais por regional e data no aplicativo móvel Minha UFG. O **ator primário** é o usuário do aplicativo, incluindo integrantes da comunidade universitária e visitantes que consultam a agenda. Não foi identificada exigência de autenticação no fluxo analisado. São **partes interessadas** na informação publicada: público interessado nos eventos, unidades/organizadores que divulgam atividades e responsáveis institucionais pelo conteúdo do serviço. Os organizadores e administradores de conteúdo não são tratados como atores do cliente móvel, pois criar e editar eventos não integra a funcionalidade estudada. **Fontes de dados externas:** serviço de eventos e páginas da regional; seus mantenedores interessam à confiabilidade da informação, mas o cliente não define suas regras editoriais. Este mapeamento identifica papéis de domínio, sem afirmar entrevistas ou aprovação por tais interessados.
+
 ## 2. Casos de uso
 **UC-MOD4-01 — Consultar eventos por data e regional**
 - Gatilho: usuário abre Eventos.
