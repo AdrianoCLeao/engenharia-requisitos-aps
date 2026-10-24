@@ -1,0 +1,12 @@
+@startuml
+left to right direction
+actor "Usuário do Minha UFG" as U
+rectangle "Minha UFG — módulo Notícias" {
+ usecase "UC-MOD5-01\nConsultar notícias" as C1
+ usecase "UC-MOD5-02\nCarregar mais notícias" as C2
+ usecase "UC-MOD5-03\nAbrir notícia" as C3
+}
+U -- C1
+U -- C2
+U -- C3
+@enduml
