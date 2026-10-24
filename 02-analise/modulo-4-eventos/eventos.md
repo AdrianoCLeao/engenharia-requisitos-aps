@@ -29,7 +29,7 @@ O domínio abrangido é a divulgação de eventos institucionais por regional e 
 
 **Fonte editável:** [eventos-casos-de-uso.puml](./eventos-casos-de-uso.puml). O usuário consulta eventos por data e abre a página específica de um evento. As associações são linhas simples entre ator e casos de uso.
 
-## 4. Modelo UML — Atividades da consulta
+## 4. Fluxo de atividades da consulta (Mermaid)
 ```mermaid
 flowchart TD
     A([Abrir Eventos ou selecionar data]) --> B[Definir dia, mês e ano]
