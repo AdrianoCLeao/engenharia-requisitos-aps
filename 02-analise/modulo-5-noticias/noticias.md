@@ -67,7 +67,18 @@ Modelo conceitual de resultado, não afirma banco, regras editoriais nem persist
 | RN-MOD5-03 | Só são exibidos grupos com ao menos uma notícia no resultado. | EV-04 |
 | RN-MOD5-04 | A URL de uma notícia usa URL base da regional e `slug` do item acionado. | EV-08 |
 Dependências externas: catálogo das regionais, serviço HTTP de notícias, rede e portal/webview. **IHC:** título de página, distinção dos agrupamentos, informações resumidas e indicador de carregamento são os elementos observáveis; recomenda-se inspeção de legibilidade e tecnologia assistiva, sem declarar certificação de acessibilidade.
-## 7. Rastreabilidade
+## 7. Conferência de consistência entre as perspectivas
+| Comportamento | Dados do modelo de classes | Requisitos | Situação |
+|---|---|---|---|
+| UC-MOD5-01 — obter e agrupar notícias | Regional.id/nome, Noticia.titulo/resumo/imagem | RF-MOD5-02/03/04; RD-MOD5-01/02 | Coerente com código e imagens das quatro regionais |
+| UC-MOD5-02 — carregar próxima página | ConsultaNoticias.pagina/tamanhoPagina; coleção por regional | RF-MOD5-05; RD-MOD5-03/04 | Evidência do código; execução dinâmica a conferir |
+| UC-MOD5-03 — abrir notícia | Regional.url, Noticia.slug | RF-MOD5-07; RD-MOD5-01/02 | Evidência do código; URLs de destino a conferir |
+| Alternativa sem resultados | Resultado vazio | RF-MOD5-06 | Evidência do template; captura de estado vazio pendente |
+| Falha da consulta | Estado de carregamento/alerta | RF-MOD5-08; RQ-MOD5-01 | Exceção especificada, sem teste de erro executado |
+
+**Limite de escopo:** as quatro regionais observadas são agrupamentos do conteúdo apresentado; o fato de haver notícias da UFJ e UFCAT não permite concluir que essas instituições sejam unidades administrativas da UFG hoje. O modelo não atribui ao aplicativo a edição de notícias. Os três casos de uso cobrem os fluxos descritos pelos oito requisitos funcionais, não são oito diagramas isolados.
+
+## 8. Rastreabilidade
 UC-MOD5-01 ↔ EV-MOD5-01–05/07/09; UC-MOD5-02 ↔ EV-MOD5-03/06; UC-MOD5-03 ↔ EV-MOD5-08/09. Requisitos detalhados: ESP-MOD5-01.
 ## Referências
 EL-MOD5-01; UFG, APS INF0339 2026/2; análise estática do arquivo `chunk-B77HEVFE.js` (22/10/2026). Uso de IA: consolidar os prompts aplicáveis no apêndice geral.
