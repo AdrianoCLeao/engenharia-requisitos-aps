@@ -12,7 +12,7 @@ O módulo Notícias permite consultar informações de acontecimentos associados
 
 **Fonte editável:** [noticias-casos-de-uso.puml](./noticias-casos-de-uso.puml). O usuário consulta notícias, carrega resultados adicionais e abre a notícia selecionada no aplicativo.
 
-## 4. UML — atividade
+## 4. Fluxo de atividades (Mermaid)
 ```mermaid
 flowchart TD
  A([Entrar em Notícias]) --> B[Inicializar página 1]
