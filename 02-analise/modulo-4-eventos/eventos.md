@@ -23,15 +23,20 @@ O domínio abrangido é a divulgação de eventos institucionais por regional e 
 - Principal: (1) módulo identifica `slug` do evento e URL da regional; (2) verifica conectividade; (3) forma o endereço da página desse evento; (4) solicita abertura no visualizador integrado.
 - Exceção: falha de conectividade é encaminhada ao tratamento de erro do módulo.
 
-## 3. Modelo UML — Casos de uso
-```mermaid
-flowchart LR
-    U["Usuário"] --> UC1(["UC-MOD4-01: Consultar eventos por data"])
-    U --> UC2(["UC-MOD4-02: Abrir página do evento"])
-    UC1 -. "depende de" .-> S["Serviço externo de eventos"]
-    UC2 -. "usa" .-> W["Página externa da regional"]
+## 3. UML — Casos de uso (PlantUML)
+```plantuml
+@startuml
+left to right direction
+actor "Usuário do Minha UFG" as U
+rectangle "Minha UFG — módulo Eventos" {
+ usecase "UC-MOD4-01\nConsultar eventos por data" as UC1
+ usecase "UC-MOD4-02\nAbrir página do evento" as UC2
+}
+U --> UC1
+U --> UC2
+@enduml
 ```
-**Nota de notação:** diagrama acima é representação de contexto dos casos de uso. Relações entre ator e casos de uso são associações; dependências externas são contexto, não <<include>> UML.
+Os serviços de eventos e as páginas regionais são **dependências externas** descritas no contexto, não casos de uso do aplicativo.
 
 ## 4. Modelo UML — Atividades da consulta
 ```mermaid
@@ -93,7 +98,16 @@ classDiagram
 - **Consistência de navegação:** consultas concorrentes não apresentam cancelamento explícito no componente; verificar comportamento de respostas antigas.
 - **IHC/acessibilidade:** seleção de data e estados de carregamento devem ser perceptíveis; testes assistivos específicos não foram executados.
 
-## 8. Rastreabilidade
+## 8. Conferência de consistência entre perspectivas
+| Elemento comportamental | Informação necessária | Especificação vinculada | Conferência |
+|---|---|---|---|
+| UC-MOD4-01: selecionar data | ConsultaEventos (dia, mês, ano) | RF-MOD4-02/03; RD-MOD4-01 | A data selecionada fundamenta a consulta |
+| UC-MOD4-01: listar resultados | Regional e Evento | RF-MOD4-04/05; RD-MOD4-02/03/04 | O agrupamento depende da regional; lista vazia é alternativa |
+| UC-MOD4-02: abrir detalhe | Regional.urlBase; Evento.slug | RF-MOD4-06; RD-MOD4-02/03 | O cartão acionado fornece o endereço correspondente |
+| Exceção da consulta | Estado de carregamento | RF-MOD4-07; RQ-MOD4-01 | ACH-MOD4-01 registra não conformidade observada; não é fluxo desejado |
+A cardinalidade do modelo de classes refere-se ao **resultado exibido por regional**, não ao banco de dados ou à administração do portal. A descrição de uma data preservada ao navegar entre meses aparece como regra em RN-MOD4-02 e evidência em EV-MOD4-04; não deve ser multiplicada como requisito independente.
+
+## 9. Rastreabilidade
 UC-MOD4-01 ← EV-MOD4-01–08,11–12 → RF-MOD4-01–05; UC-MOD4-02 ← EV-MOD4-09–10 → RF-MOD4-06.  
 ACH-MOD4-01–04 → verificação de qualidade/inspeções na seção 4.
 
