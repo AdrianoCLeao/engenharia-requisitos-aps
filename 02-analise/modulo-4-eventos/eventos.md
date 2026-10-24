@@ -50,6 +50,9 @@ O fluxo apresenta a intenção funcional identificada; a falha observada de carr
 ## 5. Modelo UML — Classes conceituais
 ```mermaid
 classDiagram
+    class ConsultaEventos {
+      dataSelecionada
+    }
     class Regional {
       identificador
       nome
@@ -62,15 +65,15 @@ classDiagram
       dataFim
       slug
     }
-    class ConsultaEventos {
-      dia
-      mes
-      ano
+    class GrupoEventos {
+      regional
+      eventos
     }
-    Regional "1" --> "0..*" Evento : apresenta na consulta
-    ConsultaEventos ..> Evento : obtém resultados
+    ConsultaEventos "1" --> "0..*" GrupoEventos : retorna grupos nao vazios
+    GrupoEventos "1" --> "1" Regional : identifica
+    GrupoEventos "1" --> "1..*" Evento : exibe na consulta
 ```
-**Cardinalidade conceitual:** uma regional pode apresentar zero ou mais eventos no resultado; cada item é exibido em um agrupamento regional. Isso não impõe regra de persistência no serviço.
+**Cardinalidades verificadas no contexto de uma consulta:** uma consulta pode resultar em zero ou mais grupos; cada grupo exibido tem exatamente uma regional e ao menos um evento. Um evento pode aparecer em consultas de datas distintas; este diagrama **não afirma** relação permanente de propriedade entre Regional e Evento no backend. O estado vazio corresponde a zero grupos. A composição exata dos resultados por data é responsabilidade do serviço remoto.
 
 ## 6. Regras e dependências
 | ID | Regra / dependência | Evidências |
