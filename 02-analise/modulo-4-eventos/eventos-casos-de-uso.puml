@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+actor "Usuário do Minha UFG" as U
+rectangle "Minha UFG — módulo Eventos" {
+  usecase "UC-MOD4-01\nConsultar eventos por data" as UC1
+  usecase "UC-MOD4-02\nAbrir página do evento" as UC2
+}
+U -- UC1
+U -- UC2
+@enduml
