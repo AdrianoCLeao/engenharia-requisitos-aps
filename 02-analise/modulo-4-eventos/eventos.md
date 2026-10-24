@@ -23,20 +23,11 @@ O domínio abrangido é a divulgação de eventos institucionais por regional e 
 - Principal: (1) módulo identifica `slug` do evento e URL da regional; (2) verifica conectividade; (3) forma o endereço da página desse evento; (4) solicita abertura no visualizador integrado.
 - Exceção: falha de conectividade é encaminhada ao tratamento de erro do módulo.
 
-## 3. UML — Casos de uso (PlantUML)
-```plantuml
-@startuml
-left to right direction
-actor "Usuário do Minha UFG" as U
-rectangle "Minha UFG — módulo Eventos" {
- usecase "UC-MOD4-01\nConsultar eventos por data" as UC1
- usecase "UC-MOD4-02\nAbrir página do evento" as UC2
-}
-U --> UC1
-U --> UC2
-@enduml
-```
-Os serviços de eventos e as páginas regionais são **dependências externas** descritas no contexto, não casos de uso do aplicativo.
+## 3. UML — Casos de uso
+
+![Diagrama UML de casos de uso — módulo Eventos](./diagramas/eventos-casos-de-uso.svg)
+
+**Fonte editável:** [eventos-casos-de-uso.puml](./eventos-casos-de-uso.puml). O usuário consulta eventos por data e abre a página específica de um evento. As associações são linhas simples entre ator e casos de uso.
 
 ## 4. Modelo UML — Atividades da consulta
 ```mermaid
