@@ -28,9 +28,14 @@ flowchart TD
  K --> H
  I -->|Selecionar notícia| L[Abrir URL específica no webview]
 ```
-## 5. UML — classes conceituais
+## 5. Modelo conceitual de classes e cardinalidades
+
 ```mermaid
 classDiagram
+ class ConsultaNoticias {
+   pagina
+   tamanhoPagina
+ }
  class Regional {
    id
    nome
@@ -42,14 +47,17 @@ classDiagram
    imagem
    slug
  }
- class ConsultaNoticias {
-   pagina
-   tamanhoPagina
+ class GrupoNoticias {
+   regional
+   noticias
  }
- Regional "1" --> "0..*" Noticia : agrupa no resultado
- ConsultaNoticias ..> Regional : usa id
+ ConsultaNoticias "1" --> "0..*" GrupoNoticias : retorna grupos
+ GrupoNoticias "1" --> "1" Regional : identifica
+ GrupoNoticias "1" --> "1..*" Noticia : exibe
 ```
-Modelo conceitual de resultado, não afirma banco, regras editoriais nem persistência local.
+
+**Leitura:** uma consulta pode produzir zero ou mais grupos; um grupo exibido corresponde a uma regional e contém uma ou mais notícias. Os vínculos representam **agrupamentos na resposta da consulta**, não propriedade editorial permanente ou tabelas físicas de banco de dados. O usuário pode ler diversos cartões e abrir um deles a cada interação; isso não modifica essas cardinalidades.
+
 ## 6. Regras e dependências
 | ID | Análise | Evidências |
 |---|---|---|
