@@ -6,21 +6,12 @@ O módulo Notícias permite consultar informações de acontecimentos associados
 **UC-MOD5-01 — Consultar notícias das regionais.** Ator: usuário. Gatilho: abrir Notícias. Principal: inicializar página 1; consultar notícias por regional; apresentar grupos com título e cartões com imagem/título/resumo. Alternativa: exibir mensagem de ausência quando o resultado agregado estiver vazio. Exceção: falha de requisição, alerta ao usuário.  
 **UC-MOD5-02 — Carregar notícias adicionais.** Ator: usuário. Gatilho: alcançar final da lista. Principal: incrementar página; consultar mais registros; acrescentar notícias às coleções já exibidas ou criar grupo de regional quando necessário. Exceção: falha da nova consulta, aviso ao usuário.  
 **UC-MOD5-03 — Abrir notícia.** Ator: usuário. Gatilho: selecionar um cartão. Principal: obter URL base da regional e slug; construir endereço `/n/<slug>`; solicitar exibição em webview. Exceção: indisponibilidade de conexão/timeout, exibir alerta.
-## 3. UML — casos de uso (PlantUML)
-```plantuml
-@startuml
-left to right direction
-actor "Usuário" as U
-rectangle "Minha UFG — Notícias" {
- usecase "UC-MOD5-01\nConsultar notícias" as C1
- usecase "UC-MOD5-02\nCarregar mais notícias" as C2
- usecase "UC-MOD5-03\nAbrir notícia" as C3
-}
-U --> C1
-U --> C2
-U --> C3
-@enduml
-```
+## 3. UML — casos de uso
+
+![Diagrama UML de casos de uso — Notícias](./diagramas/noticias-casos-de-uso.svg)
+
+**Fonte editável:** [noticias-casos-de-uso.puml](./noticias-casos-de-uso.puml). O usuário consulta notícias, carrega resultados adicionais e abre a notícia selecionada no aplicativo.
+
 ## 4. UML — atividade
 ```mermaid
 flowchart TD
