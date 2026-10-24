@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320" role="img" aria-labelledby="title desc">
+<title id="title">Diagrama de casos de uso — Eventos</title>
+<desc id="desc">O usuário do Minha UFG interage com os casos de uso Consultar eventos por data e Abrir página do evento, dentro da fronteira do módulo Eventos.</desc>
+<rect width="800" height="320" fill="#ffffff"/>
+<rect x="286" y="14" width="498" height="292" rx="3" fill="#fff" stroke="#222" stroke-width="1.8"/>
+<text x="535" y="43" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#111">Minha UFG — módulo Eventos</text>
+<g stroke="#222" stroke-width="1.8" fill="none"><circle cx="120" cy="121" r="15"/><path d="M120 136 V197 M91 156 H149 M120 197 L88 232 M120 197 L152 232"/></g>
+<text x="120" y="260" font-family="Arial, sans-serif" font-size="17" text-anchor="middle" fill="#111">Usuário do Minha UFG</text>
+<path d="M168 173 L316 104 M168 188 L316 231" fill="none" stroke="#222" stroke-width="1.8"/>
+<ellipse cx="533" cy="104" rx="212" ry="47" fill="#f7f7f7" stroke="#444" stroke-width="1.6"/>
+<ellipse cx="533" cy="231" rx="212" ry="47" fill="#f7f7f7" stroke="#444" stroke-width="1.6"/>
+<g font-family="Arial, sans-serif" font-size="20" fill="#111" text-anchor="middle">
+<text x="533" y="97">UC-MOD4-01</text><text x="533" y="122">Consultar eventos por data</text>
+<text x="533" y="224">UC-MOD4-02</text><text x="533" y="249">Abrir página do evento</text>
+</g></svg>
